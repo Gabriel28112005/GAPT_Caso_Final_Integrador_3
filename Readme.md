@@ -1,6 +1,6 @@
 https://github.com/Gabriel28112005/GAPT_Caso_Final_Integrador_3.git
 
-# Gabriel Peña Caso Final Integrador 3: Desarrollo de un Simulador de Ecosistema Inteligente
+# GAPT Caso Final Integrador 3: Desarrollo de un Simulador de Ecosistema Inteligente
 
 ## Contexto
 
