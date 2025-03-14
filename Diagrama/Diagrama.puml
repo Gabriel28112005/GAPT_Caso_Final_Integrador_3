@@ -1,0 +1,90 @@
+@startuml
+
+package "Simulador de Ecosistema Inteligente" {
+
+    package "Modelado de Entidades" {
+        class Planta {
+            +int posicionX
+            +int posicionY
+            +int salud
+            +int edad
+            +boolean estadoReproductivo
+        }
+        class Animal {
+            +int posicionX
+            +int posicionY
+            +int salud
+            +int edad
+            +boolean estadoReproductivo
+        }
+        class Entorno {
+            +String clima
+            +String terreno
+            +int recursosDisponibles
+        }
+        class Interacciones {
+            +void predacion(Animal depredador, Animal presa)
+            +void competenciaRecursos(Animal a1, Animal a2, Entorno entorno)
+            +void polinizacion(Planta planta, Animal polinizador)
+        }
+        Organismo <|-- Planta
+        Organismo <|-- Animal
+    }
+
+    package "Simulador de Dinámicas Poblacionales" {
+        class Resultados_Simulacion {
+            +double calcularSaludPromedio(int[] saludPoblacion)
+            +double calcularTasaCrecimiento(int poblacionInicial, int poblacionFinal, int tiempo)
+            +void mostrarResumenSimulacion(int poblacionInicial, int poblacionFinal, int tiempo, int[] saludPoblacion)
+        }
+        class Eventos_Aleatorios {
+            +int desastreNatural(int poblacion)
+            +int enfermedad(int poblacion, double tasaMortalidad)
+            +int cambioClimatico(int recursosDisponibles)
+        }
+        Resultados_Simulacion --> Eventos_Aleatorios
+    }
+
+    package "Gestión de Usuarios y Simulaciones" {
+        class Usuario {
+            +String nombre
+            +String rol
+        }
+        class Interfaz_Usuario {
+            +void configurarSimulacion()
+            +void mostrarResultados()
+            +void iniciarMenu()
+        }
+        class Autenticacion {
+            +void registrarUsuario()
+            +boolean iniciarSesion()
+        }
+        class Registro_Actividades {
+            +void agregarRegistro(String registro)
+            +void mostrarRegistros()
+        }
+        Usuario --> Interfaz_Usuario
+        Usuario --> Registro_Actividades
+    }
+
+    package "Análisis Avanzado" {
+        class Resolucion_Problemas {
+            +boolean evaluarEquilibrioEcologico(int poblacionDepredadores, int poblacionPresas)
+            +String evaluarEstrategiaConservacion(String estrategia, int poblacionInicial, int poblacionFinal)
+            +void identificarEspeciesEnRiesgo(List<String> especies, List<Integer> poblaciones, int umbralRiesgo)
+        }
+        class Visualizacion_Datos {
+            +void graficarPoblacion(List<Integer> datosPoblacion)
+            +void mostrarEstadisticas(int poblacionInicial, int poblacionFinal, double tasaCrecimiento)
+            +void visualizarRecursos(int[][] mapaRecursos)
+        }
+        class Integracion_Nuevas_Funciones {
+            +void agregarModeloPersonalizado(Function<Integer, Integer> modelo)
+            +void ejecutarModelos(int parametroInicial)
+        }
+        Resolucion_Problemas --> Visualizacion_Datos
+        Integracion_Nuevas_Funciones --> Resultados_Simulacion
+    }
+}
+
+@enduml
