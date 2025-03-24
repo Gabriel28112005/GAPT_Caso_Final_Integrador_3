@@ -172,7 +172,7 @@ public class Main {
         System.out.println();
 
         // 9. INTERFAZ DE USUARIO (Modo interactivo, se recomienda probar de forma independiente)
-        /*
+
         System.out.println("=== INTERFAZ DE USUARIO ===");
         Interfaz_Usuario_Modelo interfazModelo = new Interfaz_Usuario_Modelo(
                 "Simulador de Ecosistemas",
@@ -181,7 +181,7 @@ public class Main {
         );
         Interfaz_Usuario_Metodos interfazMetodos = new Interfaz_Usuario_Metodos();
         interfazMetodos.iniciarInterfaz(interfazModelo);
-        */
+
 
         System.out.println("=== FIN DE LA SIMULACIÓN COMPLETA ===");
     }
